@@ -42,9 +42,13 @@ function generateOptions() {
     optionBox.appendChild(yes);
     optionBox.appendChild(no);
     yes.addEventListener("click", () => {
+        yes.style.backgroundColor = "yellow";
+        no.style.backgroundColor = "";
         checkCurrentQuestion(questionCount, "yes");
     });
     no.addEventListener("click", () => {
+        no.style.backgroundColor = "yellow";
+        yes.style.backgroundColor = "";
         checkCurrentQuestion(questionCount, "no");
     })
 }
@@ -55,6 +59,9 @@ function startTimerAgain() {
 }
 
 saveAndNext.addEventListener("click", () => {
+    if (questionCount != 0) {
+        previous.style.display = "block";
+    }
     showQuestion();
     startTimerAgain();
 })
